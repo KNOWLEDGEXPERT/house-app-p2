@@ -1,0 +1,35 @@
+[
+  {
+    "name":"painter+aln",
+    "title":"Painter per hour",
+    "category":"painter",
+    "pro":"ALN",
+    "price":20.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all painting tasks. Any interior room of your house or apartment can be painted - kitchen, living room, bedroom, bathroom and sitting room. We even paint trim, doors and ceilings. Get your house taken care of by a trusted professional with the proper tools and supplies to get your house painted right.",
+    "image":"data/images/productpainterB.jpg",
+    "largeImage":"data/images/productpainterA.jpg"
+  },
+  {
+    "name":"painter+pro+a",
+    "title":"Painter per hour",
+    "category":"painter",
+    "pro":"Pro A",
+    "price":25.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all painting tasks. Any interior room of your house or apartment can be painted - kitchen, living room, bedroom, bathroom and sitting room. We even paint trim, doors and ceilings. Get your house taken care of by a trusted professional with the proper tools and supplies to get your house painted right.",
+    "image":"data/images/productpainter1B.jpg",
+    "largeImage":"data/images/productpainter1A.jpg"
+  },
+  {
+    "name":"painter+pro+b",
+    "title":"Painter per hour",
+    "category":"painter",
+    "pro":"Pro B",
+    "price":22.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all painting tasks. Any interior room of your house or apartment can be painted - kitchen, living room, bedroom, bathroom and sitting room. We even paint trim, doors and ceilings. Get your house taken care of by a trusted professional with the proper tools and supplies to get your house painted right.",
+    "image":"data/images/productpainter2B.jpg",
+    "largeImage":"data/images/productpainter2A.jpg"
+  }
+]

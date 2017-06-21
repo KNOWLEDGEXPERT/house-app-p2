@@ -16,12 +16,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shop-common-styles.html">
 <link rel="import" href="shop-image.html">
 <link rel="import" href="shop-select.html">
+<link rel="import" href="shop-rate.html">
 
 <dom-module id="shop-detail">
 
   <template>
 
-    <style include="shop-common-styles shop-button shop-select">
+    <style include="shop-common-styles shop-button shop-select shop-rate">
 
       :host {
         display: block;
@@ -154,8 +155,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="detail" has-content$="[[_isDefined(item)]]">
         <h1>[[item.title]]</h1>
         <div class="price">[[_formatPrice(item.price)]]</div>
+        <shop-rate>
+          <label id="sizeLabel" prefix>Rating</label>
+          <rate>
+            <iron-icon icon="star"></iron-icon>
+            <iron-icon icon="star"></iron-icon>
+            <iron-icon icon="star"></iron-icon>
+            <iron-icon icon="star"></iron-icon>
+            <iron-icon icon="star"></iron-icon>
+          </rate>
+        </shop-rate>
         <div class="pickers">
-          <shop-select>
+          <!-- <shop-select>
             <label id="sizeLabel" prefix>Size</label>
             <select id="sizeSelect" aria-labelledby="sizeLabel">
               <option value="XS">XS</option>
@@ -167,9 +178,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <shop-md-decorator aria-hidden="true">
               <shop-underline></shop-underline>
             </shop-md-decorator>
-          </shop-select>
+          </shop-select> -->
           <shop-select>
-            <label id="quantityLabel" prefix>Quantity</label>
+            <label id="quantityLabel" prefix>[[item.typeQuantity]]</label>
             <select id="quantitySelect" aria-labelledby="quantityLabel">
               <option value="1" selected>1</option>
               <option value="2">2</option>
@@ -187,7 +198,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <p id="desc"></p>
         </div>
         <shop-button responsive>
-          <button on-click="_addToCart" aria-label="Add this item to cart">Add to Cart</button>
+          <button on-click="_addToCart" aria-label="Add this item to project">Add to Project</button>
         </shop-button>
       </div>
     </div>
@@ -246,7 +257,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               // Reset the select menus.
               this.$.quantitySelect.value = '1';
-              this.$.sizeSelect.value = 'M';
+              // this.$.sizeSelect.value = 'M';
 
               this.dispatchEvent(new CustomEvent('change-section', {
                 bubbles: true, composed: true, detail: {
@@ -272,8 +283,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.dispatchEvent(new CustomEvent('add-cart-item', {
           bubbles: true, composed: true, detail: {
             item: this.item,
-            quantity: parseInt(this.$.quantitySelect.value, 10),
-            size: this.$.sizeSelect.value
+            quantity: parseInt(this.$.quantitySelect.value, 10)
+            // ,size: this.$.sizeSelect.value
           }}));
       }
 

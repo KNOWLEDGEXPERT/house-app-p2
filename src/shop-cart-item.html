@@ -176,7 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="detail">
         <div class="quantity">
           <shop-select>
-            <label prefix>Qty:</label>
+            <label prefix>[[entry.item.typeQuantity]]:</label>
             <select id="quantitySelect" aria-label="Change quantity" value="[[entry.quantity]]"
                 on-change="_quantityChange">
               <option value="1">1</option>
@@ -195,7 +195,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <shop-md-decorator aria-hidden="true"></shop-md-decorator>
           </shop-select>
         </div>
-        <div class="size">Size: <span>[[entry.size]]</span></div>
+        <!-- <div class="size">Size: <span>[[entry.size]]</span></div> -->
         <div class="price">[[_formatPrice(entry.item.price)]]</div>
 
         <!--
@@ -227,8 +227,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.dispatchEvent(new CustomEvent('set-cart-item', {
           bubbles: true, composed: true, detail: {
             item: this.entry.item,
-            quantity: quantity,
-            size: this.entry.size
+            quantity: quantity
+            // ,size: this.entry.size
           }}));
       }
 

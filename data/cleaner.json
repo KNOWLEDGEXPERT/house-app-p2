@@ -1,0 +1,35 @@
+[
+  {
+    "name":"cleaner+aln",
+    "title":"Cleaner per hour",
+    "category":"cleaner",
+    "pro":"ALN",
+    "price":20.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all cleaning tasks. Do you want your home or office to be neat and tidy? Let's a trusted professional take care of to do list cleaning and get your job done right.",
+    "image":"data/images/productcleanerB.jpg",
+    "largeImage":"data/images/productcleanerA.jpg"
+  },
+  {
+    "name":"cleaner+pro+a",
+    "title":"Cleaner per hour",
+    "category":"cleaner",
+    "pro":"Pro A",
+    "price":25.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all cleaning tasks. Do you want your home or office to be neat and tidy? Let's a trusted professional take care of to do list cleaning and get your job done right.",
+    "image":"data/images/productcleaner1B.jpg",
+    "largeImage":"data/images/productcleaner1A.jpg"
+  },
+  {
+    "name":"cleaner+pro+b",
+    "title":"Cleaner per hour",
+    "category":"cleaner",
+    "pro":"Pro B",
+    "price":22.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all cleaning tasks. Do you want your home or office to be neat and tidy? Let's a trusted professional take care of to do list cleaning and get your job done right.",
+    "image":"data/images/productcleaner2B.jpg",
+    "largeImage":"data/images/productcleaner2A.jpg"
+  }
+]

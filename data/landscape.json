@@ -1,0 +1,35 @@
+[
+  {
+    "name":"landscape+aln",
+    "title":"Landscape per hour",
+    "category":"landscape",
+    "pro":"ALN",
+    "price":20.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all landscape tasks. Imagine your ideal outdoor space and start living it. If you can dream it, we can build it and transform your outdoor space. We can create an environment that’s beyond your imagination. From planting a tree to creating a patio, we can help. Get your landscape taken care of by a trusted professional with the proper tools and supplies to get your landscape done right.",
+    "image":"data/images/productlandB.jpg",
+    "largeImage":"data/images/productlandA.jpg"
+  },
+  {
+    "name":"landscape+pro+a",
+    "title":"Landscape per hour",
+    "category":"landscape",
+    "pro":"Pro A",
+    "price":25.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all landscape tasks. Imagine your ideal outdoor space and start living it. If you can dream it, we can build it and transform your outdoor space. We can create an environment that’s beyond your imagination. From planting a tree to creating a patio, we can help. Get your landscape taken care of by a trusted professional with the proper tools and supplies to get your landscape done right.",
+    "image":"data/images/productland1A.jpg",
+    "largeImage":"data/images/productland1A.jpg"
+  },
+  {
+    "name":"landscape+pro+b",
+    "title":"Landscape per hour",
+    "category":"landscape",
+    "pro":"Pro B",
+    "price":22.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all landscape tasks. Imagine your ideal outdoor space and start living it. If you can dream it, we can build it and transform your outdoor space. We can create an environment that’s beyond your imagination. From planting a tree to creating a patio, we can help. Get your landscape taken care of by a trusted professional with the proper tools and supplies to get your landscape done right.",
+    "image":"data/images/productland2B.jpg",
+    "largeImage":"data/images/productland2A.jpg"
+  }
+]

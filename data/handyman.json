@@ -1,0 +1,35 @@
+[
+  {
+    "name":"handyman+aln",
+    "title":"Handyman per hour",
+    "category":"handyman",
+    "pro":"ALN",
+    "price":20.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all hand tasks. From pictures to mirrors and even shelves, furniture assembled, installing all types of window treatments, including blinds, curtains, shades and shutters, and get your to do list taken care of by a trusted professional with the proper tools and supplies to get your job done right.",
+    "image":"data/images/producthandyB.jpg",
+    "largeImage":"data/images/producthandyA.jpg"
+  },
+  {
+    "name":"handyman+pro+a",
+    "title":"Handyman per hour",
+    "category":"handyman",
+    "pro":"Pro A",
+    "price":25.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all hand tasks. From pictures to mirrors and even shelves, furniture assembled, nstalling all types of window treatments, including blinds, curtains, shades and shutters, and get your to do list taken care of by a trusted professional with the proper tools and supplies to get your job done right.",
+    "image":"data/images/producthandy1B.jpg",
+    "largeImage":"data/images/producthandy1A.jpg"
+  },
+  {
+    "name":"handyman+pro+b",
+    "title":"Handyman per hour",
+    "category":"handyman",
+    "pro":"Pro B",
+    "price":22.00,
+    "typeQuantity":"hour",
+    "description":"The experienced professionals are experts at all hand tasks. From pictures to mirrors and even shelves, furniture assembled, nstalling all types of window treatments, including blinds, curtains, shades and shutters, and get your to do list taken care of by a trusted professional with the proper tools and supplies to get your job done right.",
+    "image":"data/images/producthandy2B.jpg",
+    "largeImage":"data/images/producthandy2A.jpg"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "name":"other+pro+a",
+    "title":"Designer Project",
+    "category":"other",
+    "pro":"Pro A",
+    "price":20.00,
+    "typeQuantity":"project",
+    "description":"The experienced professionals are experts at all designer project tasks.",
+    "image":"data/images/productother1B.jpg",
+    "largeImage":"data/images/productother1A.jpg"
+  },
+  {
+    "name":"other+pro+b",
+    "title":"Land measurement",
+    "category":"other",
+    "pro":"Pro B",
+    "price":25.00,
+    "typeQuantity":"measure",
+    "description":"The experienced professionals are experts at all land measurement tasks.",
+    "image":"data/images/productother2B.jpg",
+    "largeImage":"data/images/productother2A.jpg"
+  }
+]
