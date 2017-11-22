@@ -31,5 +31,16 @@
     "description":"The experienced professionals are experts at all hand tasks. From pictures to mirrors and even shelves, furniture assembled, nstalling all types of window treatments, including blinds, curtains, shades and shutters, and get your to do list taken care of by a trusted professional with the proper tools and supplies to get your job done right.",
     "image":"data/images/producthandy2B.jpg",
     "largeImage":"data/images/producthandy2A.jpg"
+  },
+  {
+    "name":"handyman+quote",
+    "title":"Handyman quote",
+    "category":"handyman",
+    "pro":"",
+    "price":0.00,
+    "typeQuantity":"Quote",
+    "description":"The experienced professionals are experts at all hand tasks. From pictures to mirrors and even shelves, furniture assembled, nstalling all types of window treatments, including blinds, curtains, shades and shutters, and get your to do list taken care of by a trusted professional with the proper tools and supplies to get your job done right.",
+    "image":"data/images/producthandy2B.jpg",
+    "largeImage":"data/images/producthandy2A.jpg"
   }
 ]

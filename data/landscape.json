@@ -31,5 +31,16 @@
     "description":"The experienced professionals are experts at all landscape tasks. Imagine your ideal outdoor space and start living it. If you can dream it, we can build it and transform your outdoor space. We can create an environment that’s beyond your imagination. From planting a tree to creating a patio, we can help. Get your landscape taken care of by a trusted professional with the proper tools and supplies to get your landscape done right.",
     "image":"data/images/productland2B.jpg",
     "largeImage":"data/images/productland2A.jpg"
+  },
+  {
+    "name":"landscape+quote",
+    "title":"Landscape quote",
+    "category":"landscape",
+    "pro":"Pro B",
+    "price":0.00,
+    "typeQuantity":"Quote",
+    "description":"The experienced professionals are experts at all landscape tasks. Imagine your ideal outdoor space and start living it. If you can dream it, we can build it and transform your outdoor space. We can create an environment that’s beyond your imagination. From planting a tree to creating a patio, we can help. Get your landscape taken care of by a trusted professional with the proper tools and supplies to get your landscape done right.",
+    "image":"data/images/productland2B.jpg",
+    "largeImage":"data/images/productland2A.jpg"
   }
 ]

@@ -13,6 +13,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shop-image.html">
 <link rel="import" href="../bower_components/paper-styles/typography.html">
 <link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/mp-slider/mp-slider.html">
+
 
 
 
@@ -48,25 +50,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         opacity: 1;
       }
       .category {
-        @apply(--layout-horizontal);
-        @apply(--layout-flex);
+        @apply --layout-horizontal;
+        @apply --layout-wrap;
+        @apply --layout-center-justified;
+        margin: 0px 10px 0px 10px;
+        padding: 0;
+        list-style: none;
       }
-      /*.item {
-        display: block;
-        text-decoration: none;
-        text-align: center;
-        margin-bottom: 40px;
-      }*/
+
       .item {
-        @apply(--layout-flex);
-        @apply(--layout-center-justified);
+        -webkit-flex: 1 1;
+        flex: 1 1;
+        -webkit-flex-basis: 33%;
+        flex-basis: 33%;
+        max-width: 33%;
+        min-width: 33%;
       }
+
+      .item1 {
+        -webkit-flex: 1 1;
+        flex: 1 1;
+        -webkit-flex-basis: 33%;
+        flex-basis: 33%;
+        max-width: 33%;
+        min-width: 33%;
+      }
+
       .container{
         @apply(--layout-center-center);
+        /*@apply(--layout-wrap);*/
+
       }
       .flex-wrap {
         @apply(--layout-horizontal);
         @apply(--layout-flex-none);
+        max-width: 767px;
+        min-width: 767px;
+
         /*@apply(--layout-wrap);*/
         /*background-color: yellow;*/
       }
@@ -85,6 +105,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .flex-wrap4 {
         @apply(--layout-horizontal);
         @apply(--layout-flex-none);
+        max-width: 767px;
+        min-width: 767px;
+
+        /*background-color: #F1f1f1;*/
+      }
+      .flex-wrap5 {
+        @apply(--layout-vertical);
+        @apply(--layout-wrap);
+        width: 100%;
         /*background-color: #F1f1f1;*/
       }
       .display3{
@@ -97,15 +126,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply(--paper-font-display2);
         opacity: var(--dark-primary-opacity);
         text-align: center;
+        margin-bottom: 0px;
+        margin-top: 16px;
+      }
+      .display1{
+        @apply(--paper-font-display1);
+        opacity: var(--dark-primary-opacity);
+        text-align: center;
       }
       .subhead{
         @apply(--paper-font-subhead);
         opacity: var(--dark-primary-opacity);
         flex-basis: auto;
         font-size: 18px;
+        max-width: 350px;
       }
       .subhead2{
-        @apply(--paper-font-subhead);
+        @apply(--paper-font-body1);
         opacity: var(--dark-secondary-opacity);
         flex-basis: auto;
       }
@@ -142,18 +179,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       h2 {
         font-size: 1.3em;
         font-weight: 500;
-        margin: 32px 0;
-      }
-      .display2{
-        @apply(--paper-font-display2);
-        opacity: var(--dark-primary-opacity);
-        text-align: center;
+        margin: 16px 0;
       }
       /*.item:nth-of-type(3) > h2,
       .item:nth-of-type(4) > h2 {
         font-size: 1.1em;
       }*/
-
+      .service{
+        @apply(--layout-horizontal-reverse);
+      }
+      paper-button.custom {
+        --paper-button-ink-color: var(--paper-pink-a200);
+        /* These could also be individually defined for each of the
+          specific css classes, but we'll just do it once as an example */
+        --paper-button-flat-keyboard-focus: {
+          background-color: var(--paper-pink-a200);
+          color: white !important;
+        };
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+      paper-button.custom:hover {
+        background-color: var(--paper-indigo-100);
+      }
+      paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+      a:link {
+          text-decoration: none;
+      }
+      a:visited {
+          text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      a:active {
+        text-decoration: none;
+      }
       @media (max-width: 767px) {
         shop-image {
           height: 240px;
@@ -163,8 +233,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           margin: 24px 0;
         }
         .category {
+
           @apply(--layout-vertical);
           @apply(--layout-wrap);
+        }
+        .item {
+          max-width: none;
+          min-width: none;
+          @apply(--layout-flex);
+          @apply(--layout-center-justified);
         }
         .flex-wrap {
           @apply(--layout-vertical);
@@ -195,6 +272,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           opacity: var(--dark-primary-opacity);
           text-align: center;
         }
+        .subhead{
+          max-width: 300px;
+        }
         /*
         .item:nth-of-type(3) > shop-button > a,
         .item:nth-of-type(4) > shop-button > a {
@@ -203,47 +283,75 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     </style>
+    <!-- <div class="service">
+      <div>
+          <a name="pro" href="/pro"><paper-button raised class="custom indigo">Are you a Pro?</paper-button></a>
+      </div>
+    </div> -->
     <div class="container flex-wrap3" align="center">
-      <p class="display2" align="center">We connect you with the best professionals. It's free.</p>
-      <p class="subhead" align="center">Choose one category:</p>
+      <p class="display2" align="center">New construction, improvement, maintenance?</p>
+      <p class="subhead" align="center">Our platform connects you with the best professionals. It's free!</p>
+      <p class="subhead" align="center"></p>
+
     </div>
     <div class="category">
-      <dom-repeat items="[[categories]]">
+      <div class="flex-wrap5" align="center">
+        <p class="subhead2" align="center">Start choosing by project:</p>
+      </div>
+      <dom-repeat items="[[categories]]" filter="_isNotDisplay">
         <template strip-whitespace>
           <div class="item">
             <a class="image-link" href$="/list/[[item.name]]">
-              <shop-image src="[[item.image]]" alt="[[item.title]]" placeholder-img="[[item.placeholder]]"></shop-image>
+              <shop-image src="[[item.imagequoteA]]" alt="[[item.title]]" placeholder-img="[[item.placeholder]]"></shop-image>
             </a>
-            <h2>[[item.title]]</h2>
+            <h2 align="center">[[item.title]]</h2>
           </div>
         </template>
       </dom-repeat>
     </div>
     <div class="container flex-wrap3" align="center">
-      <p class="display2" align="center">New construction, improvement, maintain?</p>
-      <p class="subhead" align="center">Our platform research and connects you with pros.</p>
+      <p class="subhead2" align="center">Or select a pro by category:</p>
+
     </div>
-    <div class="container flex-wrap2">
+    <div class="category">
+      <dom-repeat items="[[categories]]" filter="_isDisplay">
+        <template strip-whitespace>
+          <div class="item">
+            <a class="image-link" href$="/list/[[item.name]]">
+              <shop-image src="[[item.image]]" alt="[[item.title]]" placeholder-img="[[item.placeholder]]"></shop-image>
+            </a>
+            <h2 align="center">[[item.title]]</h2>
+          </div>
+        </template>
+      </dom-repeat>
+    </div>
+    <div class="container">
+      <div class="container flex-wrap3" align="center">
         <p class="display2" align="center">See how simple it works</p>
-        <div class="container flex-wrap">
-          <div class="subhead" align="center"><img src="/images/3d-man-talk.jpg">
+      </div>
+      <div class="container flex-wrap2">
+          <div class="container flex-wrap">
+            <div class="subhead" align="center"><img src="/images/3d-man-talk.jpg">
+            </div>
+            <div class="subhead" align="center">
+              <p class="subhead" align="center">You tell us about your project.</p>
+            </div>
           </div>
-          <div class="subhead" align="center">You tell us about your project.
+          <div class="container flex-wrap4">
+            <div class="subhead" align="center">
+              <p class="subhead" align="center">We research professionals to you compare and select who is the best for the job.</p>
+            </div>
+            <div class="subhead" align="center"><img src="/images/3d-man-deal.jpg">
+            </div>
           </div>
-        </div>
-        <div class="container flex-wrap4">
-          <div class="subhead" align="center">We research professionals and present to you compare and select who is the best for your job.
+          <div class="container flex-wrap">
+            <div class="subhead" align="center"><img src="/images/3d-man-hired.jpg">
+            </div>
+            <div> <p class="display2" align="center">Done!</p>
+              <p class="subhead" align="center">We present and connect you with the selected pro. Best of all, you don't need to pay for our services.</p>
+            </div>
           </div>
-          <div class="subhead" align="center"><img src="/images/3d-man-deal.jpg">
-          </div>
-        </div>
-        <div class="container flex-wrap">
-          <div class="subhead" align="center"><img src="/images/3d-man-hired.jpg">
-          </div>
-          <div> <p class="display2" align="center">Done!</p>
-            <p class="subhead" align="center">We present and connect you with the selected pro. Best of all, you don't need to pay for our services.</p>
-          </div>
-        </div>
+      </div>
     </div>
   </template>
 
@@ -271,6 +379,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.dispatchEvent(new CustomEvent('change-section', {
             bubbles: true, composed: true, detail: {title: 'Home'}}));
         }
+      }
+
+      _isDisplay(item) {
+        if (!item) return false;
+        return item.display != 0;
+      }
+
+      _isNotDisplay(item) {
+        if (!item) return false;
+        return item.display == 0;
       }
 
     }

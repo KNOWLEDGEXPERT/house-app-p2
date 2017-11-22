@@ -31,5 +31,16 @@
     "description":"The experienced professionals are experts at all cleaning tasks. Do you want your home or office to be neat and tidy? Let's a trusted professional take care of to do list cleaning and get your job done right.",
     "image":"data/images/productcleaner2B.jpg",
     "largeImage":"data/images/productcleaner2A.jpg"
+  },
+  {
+    "name":"cleaner+quote",
+    "title":"Best Cleaning quote",
+    "category":"cleaner",
+    "pro":"Pro B",
+    "price":0.00,
+    "typeQuantity":"Quote",
+    "description":"The experienced professionals are experts at all cleaning tasks. Do you want your home or office to be neat and tidy? Let's a trusted professional take care of to do list cleaning and get your job done right.",
+    "image":"data/images/productcleaner2B.jpg",
+    "largeImage":"data/images/productcleaner2A.jpg"
   }
 ]

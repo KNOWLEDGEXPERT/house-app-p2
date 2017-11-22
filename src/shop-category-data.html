@@ -16,34 +16,103 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   (function() {
     let categoryList = [
       {
-        name: 'handyman',
-        title: 'Handyman',
-        image: 'images/handyman.jpg',
-        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAXAABAQEAAAAAAAAAAAAAAAAAAAIEAQEAAAAAAAAAAAAAAAAAAAACEAAAAwYHAQAAAAAAAAAAAAAAERMBAhIyYhQhkaEDIwUVNREBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A3dkr5e8tfpwuneJITOzIcmQpit037Bw4mnCVNOpAAQv/2Q=='
+        name: 'kitchen',
+        title: 'Kitchen',
+        display: 0,
+        image: 'images/kitchenhead.jpg',
+        head: 'images/kitchenhead.jpg',
+        imagequoteA: 'data/images/kitchenquoteA.jpg',
+        imagequoteB: 'data/images/kitchenquoteB.jpg',
+        imagequoteC: 'data/images/kitchenquoteC.jpg',
+        headLine: 'The Kitchen that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
       },
       {
-        name: 'cleaner',
-        title: 'Cleaner',
-        image: 'images/cleaner.jpg',
-        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAWQABAQAAAAAAAAAAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAIDEAABAwMFAQAAAAAAAAAAAAARAAEygRIDIlITMwUVEQEBAAAAAAAAAAAAAAAAAAAAQf/aAAwDAQACEQMRAD8Avqn5meQ0kwk1UyclmLtNj7L4PQoioFf/2Q=='
+        name: 'bathroom',
+        title: 'Bathroom',
+        display: 0,
+        image: 'images/bathroomhead.jpg',
+        head: 'images/bathroomhead.jpg',
+        imagequoteA: 'data/images/bathroomquoteA.jpg',
+        imagequoteB: 'data/images/bathroomquoteB.jpg',
+        imagequoteC: 'data/images/bathroomquoteC.jpg',
+        headLine: 'The Bathroom that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
       },
       {
-        name: 'painter',
-        title: 'Painter',
-        image: 'images/painter.jpg',
-        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAWwABAQEAAAAAAAAAAAAAAAAAAAMEAQEAAAAAAAAAAAAAAAAAAAAAEAABAwEJAAAAAAAAAAAAAAARAAESEyFhodEygjMUBREAAwAAAAAAAAAAAAAAAAAAAEFC/9oADAMBAAIRAxEAPwDb7kupZU1MTGnvOCgxpvzEXTyRElCmf//Z'
+        name: 'acheat',
+        title: 'Heat / AC',
+        display: 0,
+        image: 'images/acheaterhead.jpg',
+        head: 'images/acheaterhead.jpg',
+        imagequoteA: 'data/images/acheatquoteA.jpg',
+        imagequoteB: 'data/images/acheatquoteB.jpg',
+        imagequoteC: 'data/images/acheatquoteC.jpg',
+        headLine: 'The Bathroom that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
       },
       {
         name: 'landscape',
         title: 'Landscape',
         image: 'images/landscape.jpg',
-        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAXwABAQEAAAAAAAAAAAAAAAAAAAMFAQEBAAAAAAAAAAAAAAAAAAABAhAAAQIDCQAAAAAAAAAAAAAAEQABITETYZECEjJCAzMVEQACAwAAAAAAAAAAAAAAAAAAATFBgf/aAAwDAQACEQMRAD8AzeADAZiFc5J7BC9Scek3VrtooilSNaf/2Q=='
+        head: 'images/landscapehead.jpg',
+        imagequoteA: 'data/images/landscapequoteA.jpg',
+        imagequoteB: 'data/images/landscapequoteB.jpg',
+        imagequoteC: 'data/images/landscapequoteC.jpg',
+        headLine: 'The Yard that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
+      },
+      {
+        name: 'handyman',
+        title: 'Handyman',
+        image: 'images/handyman.jpg',
+        head: 'images/handyman.jpg',
+        imagequoteA: 'data/images/handymanquoteA.jpg',
+        imagequoteB: 'data/images/handymanquoteB.jpg',
+        imagequoteC: 'data/images/handymanquoteC.jpg',
+        headLine: 'The Handyman that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
+      },
+      {
+        name: 'cleaner',
+        title: 'Cleaner',
+        image: 'images/cleaner.jpg',
+        head: 'images/cleaner.jpg',
+        imagequoteA: 'data/images/cleanerquoteA.jpg',
+        imagequoteB: 'data/images/cleanerquoteB.jpg',
+        imagequoteC: 'data/images/cleanerquoteC.jpg',
+        headLine: 'The Cleaning that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
+      },
+      {
+        name: 'painter',
+        title: 'Painter',
+        image: 'images/painter.jpg',
+        head: 'images/painter.jpg',
+        imagequoteA: 'data/images/painterquoteA.jpg',
+        imagequoteB: 'data/images/painterquoteB.jpg',
+        imagequoteC: 'data/images/painterquoteC.jpg',
+        headLine: 'The Painting that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
       },
       {
         name: 'other',
         title: 'Other',
         image: 'images/other.jpg',
-        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAXwABAQEAAAAAAAAAAAAAAAAAAAMFAQEBAAAAAAAAAAAAAAAAAAABAhAAAQIDCQAAAAAAAAAAAAAAEQABITETYZECEjJCAzMVEQACAwAAAAAAAAAAAAAAAAAAATFBgf/aAAwDAQACEQMRAD8AzeADAZiFc5J7BC9Scek3VrtooilSNaf/2Q=='
+        head: 'images/otherhead.jpg',
+        imagequoteA: 'data/images/otherquoteA.jpg',
+        imagequoteB: 'data/images/otherquoteB.jpg',
+        imagequoteC: 'data/images/otherquoteC.jpg',
+        headLine: 'The Service that you dreamed for',
+        copyrigth: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies augue ac congue tempus. Vel aliquet nisi mi in sapien. Proin vel vehicula mi, et eleifend nisi.',
+        placeholder: ''
       }
     ];
 

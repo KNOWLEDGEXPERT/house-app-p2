@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "house-app-dev-p2"
+    "default": "house-app-dev-p2",
+    "staging": "house-app-staging-p2",
+    "dev": "house-app-dev-p2",
+    "prod": "house-app-prod-p2"
   }
 }

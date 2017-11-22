@@ -1,0 +1,477 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="shop-pro">
+  <template>
+    <style include="shop-common-styles">
+      .service{
+        @apply(--layout-horizontal-reverse);
+      }
+      paper-button.custom {
+        --paper-button-ink-color: var(--paper-pink-a200);
+        /* These could also be individually defined for each of the
+          specific css classes, but we'll just do it once as an example */
+        --paper-button-flat-keyboard-focus: {
+          background-color: var(--paper-pink-a200);
+          color: white !important;
+        };
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+      paper-button.custom:hover {
+        background-color: var(--paper-indigo-100);
+      }
+      paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+      a:link {
+          text-decoration: none;
+      }
+      a:visited {
+          text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      a:active {
+        text-decoration: none;
+      }
+      .card{
+        @apply(--layout-horizontal);
+      }
+      .main-container {
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
+        @apply(--layout-center-justified);
+        padding: 8px 24px;
+        /*-webkit-flex-basis: 100%; /* Safari 6.1+ */
+        flex-basis: 100%;
+        background-color:#fdfdfd;
+      }
+      .left-container{
+        @apply(--layout-flex);
+      }
+      .display3{
+        @apply(--paper-font-display3);
+        color: black;
+        opacity: var(--dark-primary-opacity);
+      }
+      .subhead{
+        @apply(--paper-font-subhead);
+        opacity: var(--dark-primary-opacity);
+        flex-basis: auto;
+        font-size: 18px;
+      }
+      .subhead2{
+        @apply(--paper-font-subhead);
+        opacity: var(--dark-secondary-opacity);
+        flex-basis: auto;
+        padding-right: 16px;
+      }
+      [work] {
+        @apply(--layout-horizontal);
+        padding: 8px 8px;
+      }
+      /*background-color:yellow;*/
+      /*@apply(--layout-center);*/
+      /*@apply(--layout-center-justified);*/
+
+      [how] {
+        @apply(--layout-vertical);
+        @apply(--layout-flex);
+        @apply(--layout-center-justified);
+      }
+      .form-card{
+        @apply(--layout-flex);
+        @apply(--layout-center);
+        max-width: 320px;
+      }
+      .form-block{
+        @apply(--layout-flex);
+        @apply(--layout-center);
+        padding: 1rem;
+        margin-top: 2rem;
+        box-shadow: 0 0 10px rgba(0,0,0,0.13);
+        /*min-width: 300px;*/
+      }
+      .form-head{
+        flex-basis: 75%;
+        text-align: center;
+        color: #fff;
+        @apply(--paper-font-common-base);
+        margin-top: -50px;
+        margin-bottom: 1px;
+        padding: 1px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+        border-radius: 2px;
+        box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+        background:  -webkit-linear-gradient( right, transparent 1%, transparent 10%, rgba(72,133,237,0.8) 100%);
+        background-color:#fdfdfd;
+      }
+
+      form > paper-button {
+       width: 45%;
+       margin-top: 20px;
+      }
+      form > paper-button:not([disabled]) {
+       background: var(--paper-light-blue-500);
+       color: white;
+      }
+      button {
+        margin-top: 20px;
+      }
+      paper-icon-button {
+        color: #2196F3;
+        --paper-icon-button-ink-color: white;
+      }
+
+      .form-content{
+        @apply(--layout-flex);
+        border-radius: 10px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+      }
+      .container{
+        @apply(--layout-center-center);
+      }
+
+      .flex-wrap3 {
+        @apply(--layout-vertical);
+        @apply(--layout-wrap);
+        background-color: #F1f1f1;
+      }
+
+      .display2{
+        @apply(--paper-font-display2);
+        opacity: var(--dark-primary-opacity);
+        text-align: center;
+      }
+
+      .flex-wrap2 {
+        @apply(--layout-vertical);
+        @apply(--layout-center-aligned);
+        width: 100%;
+      }
+      .flex-wrap {
+        @apply(--layout-horizontal);
+        @apply(--layout-flex-none);
+      }
+      .flex-wrap-reverse {
+          @apply(--layout-horizontal-reverse);
+          @apply(--layout-flex-none);
+      }
+      /*.descript{
+        @apply(--paper-font-common-base);
+        opacity: var(--dark-secondary-opacity);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 20px;
+      }*/
+
+      @media(max-width: 600px) {
+          .card{
+            @apply(--layout-vertical);
+          }
+          .main-container {
+            @apply(--layout-vertical-reverse);
+            @apply(--layout-center);
+            @apply(--layout-center-justified);
+            padding: 8px 24px;
+            background-color:#fdfdfd;
+            flex-basis: none;
+            min-height:130vh;
+          }
+          [work] {
+            @apply(--layout-horizontal);
+            @apply(--layout-flex);
+          }
+          [how] {
+            @apply(--layout-vertical);
+            @apply(--layout-flex);
+            @apply(--layout-center-justified);
+          }
+          .form-card{
+            max-width: 300px;
+            min-width: 115%;
+          }
+          .flex-wrap {
+            @apply(--layout-vertical);
+            @apply(--layout-wrap);
+            width: 100%;
+            background-color: white;
+          }
+          .flex-wrap-reverse {
+            @apply(--layout-vertical);
+            @apply(--layout-wrap);
+            width: 100%;
+            background-color: white;
+          }
+          .flex-wrap2 {
+            @apply(--layout-vertical);
+            @apply(--layout-wrap);
+            width: 100%;
+            background-color: white;
+          }
+      }
+    </style>
+    <firebase-document
+      id='documentProfile'
+      data='{{users}}'>
+    </firebase-document>
+
+    <!-- Handles the routing for the success and error subroutes -->
+    <app-route
+        active="{{routeActive}}"
+        data="{{routeData}}"
+        route="[[route]]"
+        pattern="/:state">
+     </app-route>
+
+    <!-- Show spinner when waiting for the server to repond -->
+    <!-- <paper-spinner-lite active="[[waiting]]"></paper-spinner-lite> -->
+    <div class="service">
+      <div>
+          <a name="home" href="/"><paper-button raised class="custom indigo">Have a project?</paper-icon-button></a>
+      </div>
+    </div>
+    <iron-pages  selected="[[state]]" attr-for-selected="state">
+
+    <div state="init">
+      <div class="card">
+        <div class="main-container">
+          <div class="left-container">
+            <p class="display3">Join Now</p>
+            <p class="subhead">
+              If you are professional, you want more clients.</p>
+            <p class="subhead2">
+              Our customers are looking for all specialist. Here some samples:
+            </p>
+            <div flex>
+              <div work>
+                <div how>
+                  <div><img src="/images/iconhandy.png">
+                  </div>
+                  <div class="descript">Handy
+                  </div>
+                </div>
+                <div how>
+                  <div><img src="/images/iconclean.png">
+                  </div>
+                  <div class="descript">Cleaner
+                  </div>
+                </div>
+                <div how>
+                  <div><img src="/images/iconpainter.png">
+                  </div>
+                  <div class="descript">Painter
+                  </div>
+                </div>
+                <div how>
+                  <div><img src="/images/iconland.png">
+                  </div>
+                  <div class="descript">Landscape
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-card">
+            <div class="form-block">
+              <div class="form-head">
+                <h3>Get More Customers</h3>
+              </div>
+              <div class="form-content">
+                <form is="iron-form" id="redirectDemo">
+                  <paper-input id="nameInput" name="name" label="Name" type="text" required></paper-input>
+                  <paper-input id="zipInput" name="zip" label="Zip Code" type="number" required></paper-input>
+                  <paper-input id="phoneInput" name="phone" label="Phone Nuber" type="number" required></paper-input>
+                  <paper-input id="emailInput" name="email" label="Email Address" type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required></paper-input>
+                  <paper-button raised on-tap="_register">Submit</paper-button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container flex-wrap3" align="center">
+        <p class="display2" align="center">Show yourself to the world.</p>
+        <p class="subhead" align="center">Our platform connects you with new clients.</p>
+      </div>
+
+      <div class="container flex-wrap2">
+          <p class="display2" align="center">How it works?</p>
+          <div class="container flex-wrap">
+            <div class="subhead" align="center"><img src="/images/3d-man-talk.jpg">
+            </div>
+            <div class="subhead" align="center">Customer tell us about his project.
+            </div>
+          </div>
+          <div class="container flex-wrap-reverse">
+            <div class="subhead" align="center"><img src="/images/3d-man-deal.jpg">
+            </div>
+            <div class="subhead" align="center">We present your service. And the customer decides.
+            </div>
+          </div>
+          <div class="container flex-wrap">
+            <div class="subhead" align="center"><img src="/images/3d-man-hired.jpg">
+            </div>
+            <div> <p class="display2" align="center">You hired!</p>
+              <p class="subhead" align="center">After you confirm the job, you pay a small fee for the introduction.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Success message UI -->
+    <header state="success">
+      <h1>Thank you</h1>
+      <p>[[response.successMessage]]</p>
+      <shop-button responsive>
+        <a href="/">Finish</a>
+      </shop-button>
+    </header>
+
+    <!-- Error message UI -->
+    <header state="error">
+      <h1>We couldn&acute;t process your order</h1>
+      <p id="errorMessage">[[response.errorMessage]]</p>
+      <shop-button responsive>
+        <a href="/checkout">Try again</a>
+      </shop-button>
+    </header>
+  </iron-pages>
+
+  </template>
+
+  <script>
+
+    class ShopPro extends Polymer.Element {
+
+      static get is() { return 'shop-pro'; }
+
+      static get properties() { return {
+
+        /**
+         * The route for the state. e.g. `success` and `error` are mounted in the
+         * `checkout/` route.
+         */
+        route: {
+          type: Object,
+          notify: true
+        },
+
+
+        /**
+         * The state of the form. Valid values are:
+         * `init`, `success` and `error`.
+         */
+        state: {
+          type: String,
+          value: 'init'
+        },
+
+        /**
+         * The user
+         */
+        user: Object,
+
+        /**
+         * If true, shop-checkout is currently visible on the screen.
+         */
+        visible: {
+          type: Boolean,
+          observer: '_visibleChanged'
+        },
+
+        /**
+         * True when waiting for the server to repond.
+         */
+        waiting: {
+          type: Boolean,
+          readOnly: true,
+          reflectToAttribute: true
+        }
+
+      }}
+
+      static get observers() { return [
+        '_updateState(routeActive, routeData)'
+      ]}
+      
+      /**
+       * Sets the valid state and updates the location.
+       */
+      _pushState(state) {
+        this._validState = state;
+        this.set('route.path', state);
+      }
+
+      /**
+       * Checks that the `:state` subroute is correct. That is, the state has been pushed
+       * after receiving response from the server. e.g. Users can only go to `/checkout/success`
+       * if the server responsed with a success message.
+       */
+      _updateState(active, routeData) {
+        if (active && routeData) {
+          let state = routeData.state;
+          if (this._validState === state) {
+            this.state = state;
+            this._validState = '';
+            return;
+          }
+        }
+        this.state = 'init';
+      }
+
+      _register(){
+
+        // if (this._validateForm()) {
+
+          // this._setWaiting(true);
+
+          this.set('users.name', this.$.nameInput.value);
+          this.set('users.zip', this.$.zipInput.value);
+          this.set('users.phone', this.$.phoneInput.value);
+          this.set('users.email', this.$.emailInput.value);
+
+          this.$.documentProfile.saveValue(this._profileExtendPath)
+            .then((val) => {
+              this._pushState('success');
+              // this._reset();
+              // this.dispatchEvent(new CustomEvent('clear-cart', {bubbles: true, composed: true}));
+              })
+            .catch((err) =>
+              this._pushState('error'));
+        // }
+      }
+
+      get _profileExtendPath() {
+        return '/users/' + this.user.uid;
+      }
+
+    }
+
+    customElements.define(ShopPro.is, ShopPro);
+
+  </script>
+</dom-module>

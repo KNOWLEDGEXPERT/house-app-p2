@@ -1,5 +1,5 @@
 {
-  "name": "shop",
+  "name": "houseapp",
   "version": "2.0.0",
   "authors": [
     "The Polymer Authors"
@@ -15,11 +15,21 @@
     "iron-icon": "polymerelements/iron-icon#^2.0.0",
     "iron-iconset-svg": "polymerelements/iron-iconset-svg#^2.0.0",
     "iron-media-query": "polymerelements/iron-media-query#^2.0.0",
+    "iron-meta": "PolymerElements/iron-meta#^2.0.0",
     "iron-overlay-behavior": "polymerelements/iron-overlay-behavior#^2.0.0",
     "iron-pages": "polymerelements/iron-pages#^2.0.0",
     "iron-selector": "polymerelements/iron-selector#^2.0.0",
     "paper-icon-button": "polymerelements/paper-icon-button#^2.0.0",
-    "paper-spinner": "polymerelements/paper-spinner#^2.0.0"
+    "paper-spinner": "polymerelements/paper-spinner#^2.0.0",
+    "polymerfire": "firebase/polymerfire#^2.1.0",
+    "paper-button": "PolymerElements/paper-button#^2.0.0",
+    "paper-input": "PolymerElements/paper-input#^2.0.1",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^2.0.0",
+    "paper-listbox": "PolymerElements/paper-listbox#^2.0.0",
+    "paper-item": "PolymerElements/paper-item#^2.0.0",
+    "paper-card": "PolymerElements/paper-card#^2.0.0",
+    "skeleton-carousel": "FabricElements/skeleton-carousel#^2.0.2",
+    "mp-slider": "mpachnis/mp-slider#^2.0.2"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0"

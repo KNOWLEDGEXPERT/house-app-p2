@@ -22,6 +22,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!-- Since 'home' is the default route, eagerly load it. -->
 <link rel="import" href="shop-home.html">
 
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+
 <dom-module id="shop-app">
 
   <template>
@@ -32,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
         position: relative;
         padding-top: 130px;
-        padding-bottom: 64px;
+        padding-bottom: 16px;
         min-height: 100vh;
         --app-primary-color: #202020;
         --app-secondary-color: #757575;
@@ -61,13 +64,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .logo {
         text-align: center;
+        padding-top: 16px;
       }
 
       .logo a {
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 0.3em;
-        color: var(--app-primary-color);
+        /*color: var(--app-primary-color);*/
         text-decoration: none;
         /* required for IE 11, so this <a> can receive pointer events */
         display: inline-block;
@@ -80,6 +84,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .menu-btn {
         display: none;
+      }
+
+      .menu-btn-left {
+        margin-right: -10px;
+      }
+
+      .menu-btn-right {
+        margin-left: -10px;
       }
 
       .cart-btn-container {
@@ -116,8 +128,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         height: 100%;
       }
 
-      shop-tab {
-        margin: 0 10px;
+      .shop-tab-drawer {
+        /*margin: 0 10px;*/
+        display: inline-block;
+        outline: none;
+        padding: 9px 5px;
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--app-primary-color);
       }
 
       shop-tab a {
@@ -150,6 +169,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 0 20px;
       }
 
+      .drawer-list-category {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-transform: uppercase;
+        color: var(--app-secondary-color);
+        font-weight: bold;
+
+      }
+
       .drawer-list a {
         display: block;
         padding: 0 16px;
@@ -162,6 +191,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: black;
         font-weight: bold;
       }
+
+
 
       shop-cart-modal {
         z-index: 2;
@@ -177,7 +208,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       footer {
-        position: absolute;
+        position: block;
         bottom: 0;
         left: 0;
         right: 0;
@@ -195,14 +226,48 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-decoration: underline;
       }
 
+      .footer-list {
+        margin: 20px 0px;
+        text-align: left;
+      }
+
+      .footer-list a {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: white;
+      }
+
+      .footer-list p {
+        display: block;
+        padding: 0 16px;
+        line-height: 20px;
+        text-decoration: none;
+        color: white;
+      }
       .demo-label {
-        box-sizing: border-box;
-        width: 120px;
-        padding: 6px;
+        /*box-sizing: border-box;
+        max-width: 1440px;*/
+
+        /*width: 120px;*/
+        /*padding: 6px;*/
         margin: 8px auto 0;
         background-color: var(--app-primary-color);
         color: white;
         text-transform: uppercase;
+      }
+      .grid {
+        margin-top: 40px;
+        @apply --layout-horizontal;
+      }
+
+      .grid > section {
+        @apply --layout-flex;
+      }
+
+      .grid > section:not(:first-child) {
+        margin-left: 80px;
       }
 
       /* small screen */
@@ -218,11 +283,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         :host([page=detail]) .menu-btn {
           display: none;
         }
+
+        .grid {
+          display: block;
+          margin-top: 0;
+        }
+
+        .grid > section:not(:first-child) {
+          margin-left: 0;
+        }
       }
 
     </style>
-
+    <firebase-app id="firebaseApp"
+                  auth-domain="house-app-dev-p2.firebaseapp.com"
+                  database-url="https://house-app-dev-p2.firebaseio.com/"
+                  api-key="AIzaSyBT4b3jhIAhn-Ozh8X9H17PmFxNGB5jhjw">
+    </firebase-app>
+    <firebase-auth id="firebaseAuth"
+                   user="{{user}}"
+                   porvider="anonymous">
+    </firebase-auth>
     <shop-analytics key="UA-39334307-16"></shop-analytics>
+    <!-- <shop-firebase id="auth" user={{user}}></shop-firebase> -->
     <!--
       app-location and app-route elements provide the state of the URL for the app.
     -->
@@ -264,10 +347,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </a>
         </div>
         <div class="logo" main-title>
-          <div class="logo-menu" style="margin:0 auto">
+          <div style="margin:0 auto">
             <a name="home" href="/">
-              <img src="/images/logoicon.png">
-              <img src="/images/nameicon.jpg">
+              <img src="/images/logoicon.jpg">
+              <!-- <img src="/images/nameicon.jpg"> -->
             </a>
           </div>
         </div>
@@ -286,13 +369,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <shop-tabs
                 selected="[[categoryName]]"
                 attr-for-selected="name">
-              <dom-repeat items="[[categories]]" as="category" initial-count="5">
+                <shop-tab name="quote">
+                  <paper-icon-button class="menu-btn-left" icon="quote" aria-label="Get a quote"></paper-icon-button>
+                  <a href="/quote/other/">Get a Quote</a>
+                </shop-tab>
+              <dom-repeat items="[[categories]]" as="category" initial-count="9">
                 <template>
                 <shop-tab name="[[category.name]]">
                   <a href="/list/[[category.name]]">[[category.title]]</a>
                 </shop-tab>
                 </template>
               </dom-repeat>
+              <shop-tab name="refer">
+                <a href="/refer/other/">Refer a Job</a>
+                <paper-icon-button class="menu-btn-right" icon="refer" aria-label="Refer a Job"></paper-icon-button>
+              </shop-tab>
             </shop-tabs>
           </template>
         </dom-if>
@@ -305,11 +396,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Two-way bind `drawerOpened` since app-drawer can update `opened` itself. -->
       <app-drawer opened="{{drawerOpened}}" swipe-open tabindex="0">
         <iron-selector role="navigation" class="drawer-list" selected="[[categoryName]]" attr-for-selected="name">
-          <dom-repeat items="[[categories]]" as="category" initial-count="4">
+          <a name="home" href="/">Home</a>
+          <div class="drawer-list-category">Categories</div>
+          <dom-repeat items="[[categories]]" as="category" initial-count="9">
             <template>
               <a name="[[category.name]]" href="/list/[[category.name]]">[[category.title]]</a>
             </template>
           </dom-repeat>
+          <a name="quote" href="/quote/other/">Get a quote</a>
+          <a name="refer" href="/refer/other/">Refer a Job</a>
+          <a name="pro" href="/pro/">Pro</a>
         </iron-selector>
       </app-drawer>
       </template>
@@ -320,19 +416,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <shop-home name="home" categories="[[categories]]"></shop-home>
       <!-- list view of items in a category -->
       <shop-list name="list" route="[[subroute]]" offline="[[offline]]"></shop-list>
+      <!-- pro view -->
+      <shop-pro name="pro" user="[[user]]" route="[[subroute]]" offline="[[offline]]"></shop-pro>
+      <!-- pro refer -->
+      <shop-refer name="refer" user="[[user]]" route="[[subroute]]" offline="[[offline]]"></shop-refer>
+      <!-- pro quote -->
+      <shop-quote name="quote" user="[[user]]" route="[[subroute]]" offline="[[offline]]"></shop-quote>
       <!-- detail view of one item -->
       <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
       <!-- cart view -->
       <shop-cart name="cart" cart="[[cart]]" total="[[total]]"></shop-cart>
       <!-- checkout view -->
-      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}"></shop-checkout>
+      <shop-checkout name="checkout" user="[[user]]" cart="[[cart]]" total="[[total]]" route="{{subroute}}"></shop-checkout>
 
       <shop-404-warning name="404"></shop-404-warning>
     </iron-pages>
 
-    <footer>
+    <footer class="demo-label">
       <!-- <a href="https://www.polymer-project.org/1.0/toolbox/">Made by Polymer</a> -->
-      <div class="demo-label">House Join</div>
+      <div class="subsection grid" visible>
+        <section class="footer-list">
+          <a name="quote" href="/quote/other/">Get a quote</a>
+          <a name="refer" href="/refer/other/">Refer a Job</a>
+        </section>
+
+        <section class="footer-list">
+          <dom-repeat items="[[categories]]" as="category" initial-count="9">
+            <template>
+              <a name="[[category.name]]" href="/list/[[category.name]]">[[category.title]]</a>
+            </template>
+          </dom-repeat>
+        </section>
+        <section class="footer-list">
+          <a name="about" href="/about/">About</a>
+          <a name="contact" href="/contact/">Contact Us</a>
+          <a name="pro" href="/pro/">Become a Pro</a>
+          <a name="partner" href="/partner/">Partnership</a>
+          <a name="term" href="/term/">Terms of use</a>
+          <a name="policy" href="/policy/">Privace policy</a>
+        </section>
+        <section class="footer-list">
+          <p>100 Boston Post Road East</p>
+          <p>#3</p>
+          <p>Marlborough MA</p>
+          <p>Zip 01752</p>
+        </section>
+      </div>
+      <div>© 2017 House N' Pro - All rights reserved</div>
     </footer>
 
     <!-- a11y announcer -->
@@ -359,6 +489,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         numItems: {
           type: Number,
           value: 0
+        },
+
+        user: {
+          type: Object,
+          value:null,
+          observer: '_userChanged'
         },
 
         _shouldShowTabs: {
@@ -400,6 +536,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           window.addEventListener('online', (e)=>this._notifyNetworkStatus(e));
           window.addEventListener('offline', (e)=>this._notifyNetworkStatus(e));
         });
+        //Create a Anonymous User on Firebase
+        this.$.firebaseAuth.signInAnonymously();
       }
 
       _routePageChanged(page) {
@@ -501,7 +639,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         // Announce the page's title
         if (detail.title) {
-          document.title = detail.title + ' - SHOP';
+          document.title = detail.title + ' - HouseNPro';
           this._announce(detail.title + ', loaded');
         }
       }
@@ -562,7 +700,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       _computeShouldShowTabs(page, smallScreen) {
-        return (page === 'home' || page === 'list' || page === 'detail') && !smallScreen;
+        return (page === 'home' || page === 'list' || page === 'detail' || page === 'pro' || page === 'refer' || page === 'quote') && !smallScreen;
       }
 
       _computeShouldRenderTabs(_shouldShowTabs, loadComplete) {
@@ -575,6 +713,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _computePluralizedQuantity(quantity) {
         return quantity + ' ' + (quantity === 1 ? 'item' : 'items');
+      }
+
+      _userChanged(){
+        // if (this.user) {
+        //   console.log(this.user.uid);
+        // }
       }
 
     }
