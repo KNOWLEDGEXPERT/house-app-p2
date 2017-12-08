@@ -1,0 +1,109 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+
+
+
+
+<dom-module id="shop-about">
+
+  <template>
+
+    <style>
+
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flex-item {
+      max-width: 767px;
+      padding: 16px;
+    }
+    h3{
+      text-align: center;
+    }
+    .center{
+      text-align: center;
+    }
+    /*img{
+      I: center;
+    }*/
+    @media (max-width: 767px) {
+      img{
+        max-width: 300px;
+      }
+    }
+
+    </style>
+    <div class="flex">
+      <div class="flex-item">
+        <h3>HOUSE &lsquo;N&rsquo; PRO</h3>
+        <p>When you have some problem with your house and you need some professional to fix it, this is the HOUSE ‘N’ PRO. Our online multiplatform application connects property owners with professionals to take care of your projects.</p>
+        <p>Through your computer, smartphone or tablet, you can find professionals recommended for the needs of your home, from a general contractor to build a new house, or a painter to color an old room, or a cleaning professional. Do you need inspiration in your landscaping? No problem, we can recommend an excellent professional to help.</p>
+        <p>Simple and easy you just need to open your application and choose what you need. You can choose a professional from a list, look for your need or find the professional based on the problem. Everything filtered according to your will: price, reviews, warranty, quality. You can contact directly the pro or use our application to manage the project. With our incredible virtual meeting table, you can negotiate with professionals without jeopardizing your privacy. We show the best combination. All for free.</p>
+        <p>A great opportunity for professionals to meet new customers or keep old customers. The best part, we only charge a small fee from the professional when a service is officially hired. This means that if the professional receives the customers, everyone wins.</p>
+      </div>
+    </div>
+    <div class="flex">
+      <img class="center" src="/images/houseandaln.jpg">
+    </div>
+    <div class="flex">
+      <div class="flex-item">
+        <h3> Know more about our Partnership with Aln Network Professionals. <a href="/partner/">Read more</a></h3>
+        <p class="center">Customers need professionals. Professionals need customers.</p>
+      </div>
+    </div>
+
+
+
+  </template>
+
+  <script>
+    class ShopAbout extends Polymer.Element {
+
+      static get is() {
+        return 'shop-about';
+      }
+
+      static get properties() {
+        return {
+          /**
+           * If true, shop-checkout is currently visible on the screen.
+           */
+          visible: {
+            type: Boolean,
+            observer: '_visibleChanged'
+          }
+        }
+      }
+
+      _visibleChanged(visible) {
+        if (visible) {
+          this.dispatchEvent(new CustomEvent('change-section', {
+            bubbles: true,
+            composed: true,
+            detail: {
+              title: 'About'
+            }
+          }));
+        }
+      }
+
+
+    }
+
+    customElements.define(ShopAbout.is, ShopAbout);
+  </script>
+
+</dom-module>

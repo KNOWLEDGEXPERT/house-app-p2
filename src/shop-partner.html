@@ -1,0 +1,104 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+
+
+
+
+<dom-module id="shop-partner">
+
+  <template>
+
+    <style>
+
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flex-item {
+      max-width: 767px;
+      padding: 16px;
+    }
+    h3{
+      text-align: center;
+    }
+    .center{
+      text-align: center;
+    }
+    /*img{
+      I: center;
+    }*/
+    @media (max-width: 767px) {
+
+    }
+
+    </style>
+    <div class="flex">
+      <img class="center" src="/images/houseandaln.jpg">
+    </div>
+    <div class="flex">
+      <div class="flex-item">
+        <h3> Together we are better: HOUSE &lsquo;N&rsquo; PRO & Aln Network</h3>
+        <p>When small parts connect each other they became strongest. With this united spirit, ALN Network was created.  A group of professionals and companies with the same objective deliver better services with an affordable price and excellent quality in a reasonable time.</p>
+        <p>It is a win-win game, the companies remain with their normal functioning but enjoying the benefits of large enterprises. Some benefits including: buying in large scale, you can have more discounts; business advice for a better comprehension of the market; marketing plan specific for your audience; and many other benefits.</p>
+        <p><b>ALN Network</b> helps to develop small and medium enterprises but also acts as an agent to monitor the quality of services provided. And that is the reason you can trust in our company references.</p>
+        <p>Together, <b>HOUSE &lsquo;N&rsquo; PRO & Aln Network</b> can offer the best service, with the best quality for an affordable price.</p>
+        <h3>If you want to become a special partner with us get in <a href="/contact/">contact right now</a>. It would be a pleasure to join forces with a strategic business plan.</h3>
+        <h3>HOUSE &lsquo;N&rsquo; PRO</h3>
+        <p class="center">Customers need professionals. Professionals need customers.</p>
+      </div>
+    </div>
+
+
+
+  </template>
+
+  <script>
+    class ShopPartner extends Polymer.Element {
+
+      static get is() {
+        return 'shop-partner';
+      }
+
+      static get properties() {
+        return {
+          /**
+           * If true, shop-checkout is currently visible on the screen.
+           */
+          visible: {
+            type: Boolean,
+            observer: '_visibleChanged'
+          }
+        }
+      }
+
+      _visibleChanged(visible) {
+        if (visible) {
+          this.dispatchEvent(new CustomEvent('change-section', {
+            bubbles: true,
+            composed: true,
+            detail: {
+              title: 'Partnership'
+            }
+          }));
+        }
+      }
+
+
+    }
+
+    customElements.define(ShopPartner.is, ShopPartner);
+  </script>
+
+</dom-module>

@@ -13,7 +13,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shop-image.html">
 <link rel="import" href="../bower_components/paper-styles/typography.html">
 <link rel="import" href="../bower_components/paper-styles/color.html">
-<link rel="import" href="../bower_components/mp-slider/mp-slider.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
 
 
 
@@ -78,9 +79,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .container{
         @apply(--layout-center-center);
-        /*@apply(--layout-wrap);*/
-
       }
+
       .flex-wrap {
         @apply(--layout-horizontal);
         @apply(--layout-flex-none);
@@ -101,6 +101,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply(--layout-wrap);
         width: 100%;
         background-color: #F1f1f1;
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
       .flex-wrap4 {
         @apply(--layout-horizontal);
@@ -133,6 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply(--paper-font-display1);
         opacity: var(--dark-primary-opacity);
         text-align: center;
+        margin: 0px;
       }
       .subhead{
         @apply(--paper-font-subhead);
@@ -224,6 +227,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       a:active {
         text-decoration: none;
       }
+
+      paper-card {
+	       max-width: 700px;
+      }
+
+      paper-fab[label] {
+        font-size: 20px;
+        --paper-fab-background: #567ebb;
+        position: absolute;
+        margin: -35px 10px 110px 35%;
+      }
+
+      .card-step{
+        max-width: 300px;
+        margin: 8px;
+      }
+
+      .center {
+        @apply --layout-horizontal;
+        justify-content: center;
+        padding: 18px
+      }
+
       @media (max-width: 767px) {
         shop-image {
           height: 240px;
@@ -274,6 +300,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         .subhead{
           max-width: 300px;
+        }
+        .center {
+          @apply --layout-wrap;
+          justify-content: center;
         }
         /*
         .item:nth-of-type(3) > shop-button > a,
@@ -327,30 +357,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </div>
     <div class="container">
       <div class="container flex-wrap3" align="center">
-        <p class="display2" align="center">See how simple it works</p>
+        <p class="display1" align="center">See how simple it works:</p>
       </div>
-      <div class="container flex-wrap2">
-          <div class="container flex-wrap">
-            <div class="subhead" align="center"><img src="/images/3d-man-talk.jpg">
-            </div>
-            <div class="subhead" align="center">
-              <p class="subhead" align="center">You tell us about your project.</p>
-            </div>
+      <div class="center">
+        <paper-card class="card-step" image="/images/3d-man-talk.jpg">
+          <div class="card-actions">
+            <paper-fab label="#1"></paper-fab>
           </div>
-          <div class="container flex-wrap4">
-            <div class="subhead" align="center">
-              <p class="subhead" align="center">We research professionals to you compare and select who is the best for the job.</p>
-            </div>
-            <div class="subhead" align="center"><img src="/images/3d-man-deal.jpg">
-            </div>
+          <div class="card-content">You tell us about your project.</div>
+        </paper-card>
+        <paper-card class="card-step" image="/images/3d-man-deal.jpg">
+          <div class="card-actions">
+            <paper-fab label="#2"></paper-fab>
           </div>
-          <div class="container flex-wrap">
-            <div class="subhead" align="center"><img src="/images/3d-man-hired.jpg">
-            </div>
-            <div> <p class="display2" align="center">Done!</p>
-              <p class="subhead" align="center">We present and connect you with the selected pro. Best of all, you don't need to pay for our services.</p>
-            </div>
+          <div class="card-content">We research professionals to you compare and select who is the best for the job. Always respecting your privacy.</div>
+        </paper-card>
+        <paper-card class="card-step" image="/images/3d-man-hired.jpg">
+          <div class="card-actions">
+            <paper-fab label="#3"></paper-fab>
           </div>
+          <div class="card-content">We present and connect you with the selected pro. Best of all, you don't need to pay for our services.</div>
+        </paper-card>
+      </div>
+      <div class="container flex-wrap3">
+        <div>
+          <p class="display1" align="center">Done!</p>
+          <p class="display1" align="center">Your project to reality.</p>
+        </div>
       </div>
     </div>
   </template>

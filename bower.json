@@ -29,7 +29,8 @@
     "paper-item": "PolymerElements/paper-item#^2.0.0",
     "paper-card": "PolymerElements/paper-card#^2.0.0",
     "skeleton-carousel": "FabricElements/skeleton-carousel#^2.0.2",
-    "mp-slider": "mpachnis/mp-slider#^2.0.2"
+    "mp-slider": "mpachnis/mp-slider#^2.0.2",
+    "paper-fab": "PolymerElements/paper-fab#^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0"

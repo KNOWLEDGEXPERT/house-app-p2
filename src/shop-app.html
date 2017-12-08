@@ -246,6 +246,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-decoration: none;
         color: white;
       }
+
+      .footer-list-a a {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: white;
+      }
+
+      .footer-list-a p {
+        display: block;
+        padding: 0 16px;
+        line-height: 20px;
+        text-decoration: none;
+        color: white;
+      }
       .demo-label {
         /*box-sizing: border-box;
         max-width: 1440px;*/
@@ -292,6 +308,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         .grid > section:not(:first-child) {
           margin-left: 0;
         }
+
+        .footer-list-a {
+          display: none;
+        }
       }
 
     </style>
@@ -304,7 +324,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                    user="{{user}}"
                    porvider="anonymous">
     </firebase-auth>
-    <shop-analytics key="UA-39334307-16"></shop-analytics>
+    <shop-analytics key="UA-99286706-3"></shop-analytics>
     <!-- <shop-firebase id="auth" user={{user}}></shop-firebase> -->
     <!--
       app-location and app-route elements provide the state of the URL for the app.
@@ -426,21 +446,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
       <!-- cart view -->
       <shop-cart name="cart" cart="[[cart]]" total="[[total]]"></shop-cart>
-      <!-- checkout view -->
-      <shop-checkout name="checkout" user="[[user]]" cart="[[cart]]" total="[[total]]" route="{{subroute}}"></shop-checkout>
+
+      <!-- term of use view -->
+      <shop-term name="term"></shop-term>
+
+      <!-- about view -->
+      <shop-about name="about"></shop-about>
+
+      <!-- contact view -->
+      <shop-contact name="contact" user="[[user]]" route="[[subroute]]" offline="[[offline]]"></shop-contact>
+
+      <!-- partner view -->
+      <shop-partner name="partner" user="[[user]]" route="[[subroute]]" offline="[[offline]]"></shop-partner>
+
+      <!-- partner view -->
+      <shop-policy name="policy" user="[[user]]" route="[[subroute]]" offline="[[offline]]"></shop-policy>
 
       <shop-404-warning name="404"></shop-404-warning>
     </iron-pages>
 
     <footer class="demo-label">
-      <!-- <a href="https://www.polymer-project.org/1.0/toolbox/">Made by Polymer</a> -->
-      <div class="subsection grid" visible>
-        <section class="footer-list">
+      <div class="subsection grid">
+        <section class="footer-list-a">
           <a name="quote" href="/quote/other/">Get a quote</a>
           <a name="refer" href="/refer/other/">Refer a Job</a>
         </section>
 
-        <section class="footer-list">
+        <section class="footer-list-a">
           <dom-repeat items="[[categories]]" as="category" initial-count="9">
             <template>
               <a name="[[category.name]]" href="/list/[[category.name]]">[[category.title]]</a>
@@ -450,16 +482,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <section class="footer-list">
           <a name="about" href="/about/">About</a>
           <a name="contact" href="/contact/">Contact Us</a>
-          <a name="pro" href="/pro/">Become a Pro</a>
+
           <a name="partner" href="/partner/">Partnership</a>
           <a name="term" href="/term/">Terms of use</a>
-          <a name="policy" href="/policy/">Privace policy</a>
+          <a name="policy" href="/policy/">Privacy Policy</a>
         </section>
         <section class="footer-list">
           <p>100 Boston Post Road East</p>
-          <p>#3</p>
+          <p>Suite 3</p>
           <p>Marlborough MA</p>
           <p>Zip 01752</p>
+          <a href="mailto:hello@housenpro.com?Subject=Put%20a%20subject" target="_top">hello@housenpro.com</a>
         </section>
       </div>
       <div>© 2017 House 'N' Pro - All rights reserved</div>
@@ -700,7 +733,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       _computeShouldShowTabs(page, smallScreen) {
-        return (page === 'home' || page === 'list' || page === 'detail' || page === 'pro' || page === 'refer' || page === 'quote') && !smallScreen;
+        return (page === 'home' || page === 'list' || page === 'detail' || page === 'pro' || page === 'refer' || page === 'quote' || page === 'term' || page === 'about') && !smallScreen;
       }
 
       _computeShouldRenderTabs(_shouldShowTabs, loadComplete) {

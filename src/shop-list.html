@@ -12,6 +12,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/skeleton-carousel/skeleton-carousel.html">
 <link rel="import" href="shop-category-data.html">
 <link rel="import" href="shop-common-styles.html">
@@ -59,6 +62,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        .center {
          @apply --layout-horizontal;
          justify-content: center;
+         padding: 18px
        }
 
       .quoterefer{
@@ -74,7 +78,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply --layout-horizontal;
         @apply --layout-wrap;
         @apply --layout-justified;
-        margin: 0 10px 32px 10px;
+        margin: 0 10px 10px 10px;
         padding: 0;
         list-style: none;
       }
@@ -97,7 +101,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: 400;
         line-height: 32px;
       }
-      .card-title {
+      /*.card-title {
           padding: 0px 16px 16px;
           display: -webkit-box;
           display: -webkit-flex;
@@ -109,23 +113,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           -webkit-box-direction: normal;
           -webkit-flex-direction: row;
           flex-direction: row;
-      }
-
-      /*.refergrid{
-        display: grid;
-      }
-
-      .referleft{
-        margin: 10px 0 0 0;
-        text-decoration: none;
-      }
-
-      .refermid{
-        margin: 0 0 0 -16px;
-      }
-      .referright{
-        margin: 10px 0 0 -42px;
       }*/
+
 
       iron-image {
         display: block;
@@ -133,10 +122,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         min-height: 350px;
       }
 
-      skeleton-carousel {
-        min-height: 350px;
+      .container{
+        @apply(--layout-center-center);
       }
 
+      .flex-wrap3 {
+        @apply(--layout-vertical);
+        @apply(--layout-wrap);
+        width: 100%;
+        background-color: #F1f1f1;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .flex-wrap5 {
+        @apply(--layout-vertical);
+        @apply(--layout-wrap);
+        width: 100%;
+        /*background-color: #F1f1f1;*/
+      }
+
+      .display1{
+        @apply(--paper-font-display1);
+        opacity: var(--dark-primary-opacity);
+        text-align: center;
+        margin: 0px;
+      }
+
+      .subhead{
+        @apply(--paper-font-subhead);
+        opacity: var(--dark-primary-opacity);
+        flex-basis: auto;
+        font-size: 18px;
+        max-width: 300px;
+      }
+      .subhead2{
+        @apply(--paper-font-body1);
+        opacity: var(--dark-secondary-opacity);
+        flex-basis: auto;
+      }
+      paper-fab[label] {
+        font-size: 20px;
+        --paper-fab-background: #567ebb;
+        position: absolute;
+        margin: -35px 10px 110px 35%;
+      }
+      .card-step{
+        max-width: 300px;
+        margin: 8px;
+      }
       @media (max-width: 767px) {
         .hero-image {
           display: none;
@@ -146,6 +179,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           -webkit-flex-basis: 50%;
           flex-basis: 50%;
           max-width: 50%;
+        }
+        .center {
+          @apply --layout-wrap;
+          justify-content: center;
         }
       }
 
@@ -211,7 +248,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </a>
             </div>
             <p class="cafe-light">[[category.copyrigth]]</p>
-            <p class="cafe-light">Ready to plan and start your project? Click on QUOTE YOUR PORJECT to get a professional free quote.</p>
+            <p class="cafe-light">Ready to plan and start your project? Click on GET QUOTE to get a professional free quote.</p>
             <div class="center">
               <a href="/quote/[[routeData.category]]/">
               <paper-button raised class="cafe-reserve">Get a Quote</paper-button>
@@ -219,48 +256,81 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
           </div>
           <div class="grid">
-            <div>Share idea:
+            <div>
+              Share idea:
               <a href="/refer/[[routeData.category]]/">
-                <paper-icon-button
-                    icon="email"
-                    aria-label="Share Email">
-                </paper-icon-button>
+                <img src="images/email.gif"
+                     aria-label="Share Email">
+                </img>
               </a>
             </div>
             <div>Refer and earn:
               <a href="/refer/[[routeData.category]]/">
-                <paper-icon-button
-                    icon="referout"
-                    aria-label="ReferOut">
-                </paper-icon-button>
-                <paper-icon-button
-                    icon="referin"
+                <img
+                src="images/refeer.gif"
                     aria-label="ReferIn">
-                </paper-icon-button>
+                </img>
               </a>
             </div>
           </div>
         </paper-card>
+
     </div>
+    <!-- <dom-if if="[[_shouldRenderShop]]">
+      <header>
+        <h1 class="headline">Shop</h1>
+        <span>[[_getPluralizedQuantity(category.items.length)]]</span>
+      </header>
 
-    <header>
-      <h1 class="headline">Shop</h1>
-      <span>[[_getPluralizedQuantity(category.items.length)]]</span>
-    </header>
 
+      <ul class="grid" hidden$="[[failure]]">
+        <dom-repeat items="[[_getListItems(category.items)]]" initial-count="4">
+          <template>
+            <li>
+              <a href$="[[_getItemHref(item)]]">
+                  <shop-list-item item="[[item]]"></shop-list-item>
+              </a>
+            </li>
+          </template>
+        </dom-repeat>
+      </ul>
+    </dom-if> -->
 
-    <ul class="grid" hidden$="[[failure]]">
-      <dom-repeat items="[[_getListItems(category.items)]]" initial-count="4">
-        <template>
-          <li>
-            <a href$="[[_getItemHref(item)]]">
-                <shop-list-item item="[[item]]"></shop-list-item>
-            </a>
-          </li>
-        </template>
-      </dom-repeat>
-    </ul>
-
+    <div class="container flex-wrap3" align="center">
+      <p class="display1" align="center">New construction, improvement, maintenance?</p>
+      <p class="subhead" align="center">Our platform connects you with the best professionals. It's free!</p>
+    </div>
+    <div class="container">
+      <div class="container flex-wrap3" align="center">
+        <p class="display1" align="center">See how simple it works:</p>
+      </div>
+      <div class="center">
+        <paper-card class="card-step" image="/images/3d-man-talk.jpg">
+          <div class="card-actions">
+            <paper-fab label="#1"></paper-fab>
+          </div>
+          <div class="card-content">You tell us about your project.</div>
+        </paper-card>
+        <paper-card class="card-step" image="/images/3d-man-deal.jpg">
+          <div class="card-actions">
+            <paper-fab label="#2"></paper-fab>
+          </div>
+          <div class="card-content">We research professionals to you compare and select who is the best for the job. Always respecting your privacy.</div>
+        </paper-card>
+        <paper-card class="card-step" image="/images/3d-man-hired.jpg">
+          <div class="card-actions">
+            <paper-fab label="#3"></paper-fab>
+          </div>
+          <div class="card-content">We present and connect you with the selected pro. Best of all, you don't need to pay for our services.</div>
+        </paper-card>
+      </div>
+      <div class="container flex-wrap3">
+        <div>
+          <p class="display1" align="center">Done!</p>
+          <p class="display1" align="center">Your project to reality.</p>
+        </div>
+      </div>
+    </div>
     <!--
       shop-network-warning shows a warning message when the items can't be rendered due
       to network conditions.
