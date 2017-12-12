@@ -425,7 +425,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </dom-repeat>
           <a name="quote" href="/quote/other/">Get a quote</a>
           <a name="refer" href="/refer/other/">Refer a Job</a>
-          <a name="pro" href="/pro/">Pro</a>
         </iron-selector>
       </app-drawer>
       </template>
@@ -733,7 +732,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       _computeShouldShowTabs(page, smallScreen) {
-        return (page === 'home' || page === 'list' || page === 'detail' || page === 'pro' || page === 'refer' || page === 'quote' || page === 'term' || page === 'about') && !smallScreen;
+        return (page === 'home' || page === 'list' || page === 'detail' || page === 'pro' || page === 'refer' || page === 'quote' || page === 'term' || page === 'about' || page === 'contact' || page === 'partner' || page === 'policy') && !smallScreen;
       }
 
       _computeShouldRenderTabs(_shouldShowTabs, loadComplete) {
